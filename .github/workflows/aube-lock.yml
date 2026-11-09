@@ -4,12 +4,13 @@ name: aube-lock
 # updates package.json but has no aube support, leaving the lockfile stale
 # and breaking frozen installs in CI.
 
-on:
-  push:
-    branches: ["renovate/**"]
-
-# "-caller" keeps this group apart from the one the shared workflow sets for
-# its own job (aube-lock-<ref>); equal groups would cancel the called job.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: ["renovate/**"]
+# 
+# # "-caller" keeps this group apart from the one the shared workflow sets for
+# # its own job (aube-lock-<ref>); equal groups would cancel the called job.
 concurrency:
   group: ${{ github.workflow }}-caller-${{ github.ref }}
   cancel-in-progress: true

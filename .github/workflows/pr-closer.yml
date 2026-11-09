@@ -1,10 +1,11 @@
 name: pr-closer
 
-on:
-  schedule:
-    - cron: "0 0 * * *" # daily at midnight
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     - cron: "0 0 * * *" # daily at midnight
+#   workflow_dispatch:
+# 
 concurrency:
   group: pr-closer
   cancel-in-progress: true

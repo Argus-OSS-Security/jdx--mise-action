@@ -1,14 +1,15 @@
 name: Release
 
-on:
-  pull_request:
-    types: [closed]
-    branches: [main]
-
-# Every closed PR starts this workflow, so only release PRs share a group; any other
-# closed PR gets a group of its own and cannot displace a pending release. Every
-# release must run (each tags its own version), so queue them instead of keeping only
-# the newest pending one, and never cancel one that is publishing.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [closed]
+#     branches: [main]
+# 
+# # Every closed PR starts this workflow, so only release PRs share a group; any other
+# # closed PR gets a group of its own and cannot displace a pending release. Every
+# # release must run (each tags its own version), so queue them instead of keeping only
+# # the newest pending one, and never cancel one that is publishing.
 concurrency:
   group: ${{ github.workflow }}-${{ contains(github.event.pull_request.labels.*.name, 'release') && 'release' || github.run_id }}
   cancel-in-progress: false

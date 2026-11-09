@@ -2,12 +2,13 @@ name: release-plz
 
 permissions: {}
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - main
+# 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NPM_CONFIG_FUND: false

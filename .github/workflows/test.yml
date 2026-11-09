@@ -1,12 +1,13 @@
 name: "build-test"
-on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on: # rebuild any PRs and main branch changes
+#   pull_request:
+#   push:
+#     branches:
+#       - main
+#       - 'releases/*'
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 
